@@ -93,10 +93,10 @@ public class PlayerController : MonoBehaviour
 
         bool groundTouch = isGrounded;
         isGrounded = Physics.CheckSphere(groundChecker.position, groundCheckerRadius, isGround);    // check if the player is on the ground
-        //anim.SetBool("isGrounded", isGrounded);                     // reset to Idle animation
+        anim.SetBool("isGrounded", isGrounded);                     // reset to Idle animation
 
         float animVelocityClamp = Mathf.Clamp(rb.velocity.y, -0.5f, 0.5f);
-        //anim.SetFloat("verticalVelocity", animVelocityClamp);
+        anim.SetFloat("verticalVelocity", animVelocityClamp);
         
         //Play particle on the frame of landing
         if (!groundTouch && isGrounded)
@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
 
-        // handles sprite orientation
+        // handles sprite orientation for paper mario style 2D sprite moving in a 3D environment
         if (xInput > 0 && !facingLeft)
         {
             //Flip();
